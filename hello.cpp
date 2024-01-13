@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 // Function to calculate the square of a number
 int square(int num) {
@@ -17,6 +18,30 @@ void printMessage(bool condition) {
     } else {
         std::cout << "Condition is false!" << std::endl;
     }
+}
+
+// Function to calculate the factorial of a number
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+// Function to generate Fibonacci series up to a certain limit
+std::vector<int> generateFibonacci(int limit) {
+    std::vector<int> fibonacciSeries;
+    int a = 0, b = 1, temp;
+
+    while (a <= limit) {
+        fibonacciSeries.push_back(a);
+        temp = a;
+        a = b;
+        b = temp + b;
+    }
+
+    return fibonacciSeries;
 }
 
 int main() {
@@ -41,6 +66,18 @@ int main() {
     // Call a function with a condition
     bool condition = true;
     printMessage(condition);
+
+    // Calculate factorial of a number
+    int factorialResult = factorial(5);
+    std::cout << "Factorial of 5 is: " << factorialResult << std::endl;
+
+    // Generate Fibonacci series
+    std::vector<int> fibonacciSeries = generateFibonacci(50);
+    std::cout << "Fibonacci series up to 50: ";
+    for (int fibNum : fibonacciSeries) {
+        std::cout << fibNum << " ";
+    }
+    std::cout << std::endl;
 
     // Add more lines as needed...
 
